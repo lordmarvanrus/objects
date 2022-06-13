@@ -1,2 +1,4 @@
-package objects;public class Book {
+package objects;
+
+public class Book {
 }

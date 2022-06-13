@@ -1,2 +1,7 @@
-package objects;public class Main {
+package objects;
+
+public class Main {
+    public static void main(String[] args) {
+
+    }
 }
