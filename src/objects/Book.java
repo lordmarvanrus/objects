@@ -2,13 +2,15 @@ package objects;
 
 public class Book {
     private String bookName;
-    private String author;
     private int year;
+    Author author;
 
-    public Book(String author, String bookName, int year) {
-        this.author = author;
-        this.bookName = bookName;
-        this.year = year;
+    public static Book Book(Author author, String bookName, int year) {
+        Book book = new Book();
+        book.author = author;
+        book.bookName = bookName;
+        book.year = year;
+        return book;
     }
 
     public int setBookYear(int year) {
@@ -22,9 +24,6 @@ public class Book {
         return year;
     }
 
-    public String getAuthor() {
-        return author;
-    }
 
     }
 

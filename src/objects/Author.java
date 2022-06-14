@@ -3,13 +3,12 @@ package objects;
 public class Author {
     private String lastName;
     private String firstName;
-    private String fullName;
 
-    public Author(String lastName, String firstName) {
-        this.fullName = lastName + firstName;
-    }
-    public String getFullName() {
-        return this.fullName;
+    public static Author Author(String lastName, String firstName) {
+        Author author = new Author();
+        author.lastName = lastName + " ";
+        author.firstName = firstName;
+        return author;
     }
     public String getFirstName() {
         return this.firstName;
