@@ -7,17 +7,14 @@ public class Book {
     private int year;
     Author author;
 
-    public static Book Book(Author author, String bookName, int year) {
-        Book book = new Book();
-        book.author = author;
-        book.bookName = bookName;
-        book.year = year;
-        return book;
+    public Book (Author author, String bookName, int year) {
+        this.author = author;
+        this.bookName = bookName;
+        this.year = year;
     }
 
-    public int setBookYear(int year) {
+    public void setBookYear(int year) {
         this.year = year;
-        return year;
     }
 
     public String getBookName() {
@@ -29,17 +26,21 @@ public class Book {
     }
 
     public String toString() {
-        return "Название: " + bookName + ", " + author + ", " + "год издания: " + year;
+        return "Название: " + bookName + ", " + author.toString() + ", " + "год издания: " + year;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Book otherBook = (Book) obj;
-        return this.bookName == otherBook.bookName;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return Objects.equals(year, book.year) && Objects.equals(bookName, book.bookName) &&
+                Objects.equals(author, book.author);
     }
+
     @Override
     public int hashCode() {
-        return Objects.hash(bookName);
+        return Objects.hash(bookName, year, author);
     }
 }
 

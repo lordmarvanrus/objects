@@ -6,11 +6,9 @@ public class Author {
     private String lastName;
     private String firstName;
 
-    public static Author Author(String lastName, String firstName) {
-        Author author = new Author();
-        author.lastName = lastName;
-        author.firstName = firstName;
-        return author;
+    public Author(String lastName, String firstName) {
+        this.lastName = lastName;
+        this.firstName = firstName;
     }
 
     public String getFirstName() {
@@ -26,13 +24,15 @@ public class Author {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        Author otherAuthor = (Author) obj;
-        return this.lastName == otherAuthor.lastName;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return Objects.equals(lastName, author.lastName) && Objects.equals(firstName, author.firstName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lastName);
+        return Objects.hash(lastName, firstName);
     }
 }
